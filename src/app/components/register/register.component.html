@@ -1,0 +1,104 @@
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="">
+        <div [hidden]="!success" class="alert alert-success succes">
+          Votre compte a ete cree avec succes.
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-md-8 col-lg-7">
+            <div class="login-wrap p-4 p-md-5">
+
+              <h3 class="text-center mb-4">Inscription</h3>
+              <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+                <div class="row form-group m-2">
+                  <label class="col-md-5">Nom d'utilisateur :</label>
+                  <input
+                    type="text"
+                    [(ngModel)]="user.username"
+                    [ngClass]="{'is-invalid':userName.errors && userName.touched}"
+                    class=" col-md-7 form-control"
+                    name="Username"
+                    #userName="ngModel"
+                    required
+                    minlength="3"/>
+
+                  <div [hidden]="!userName.errors?.required" class="invalid-feedback">
+                    Entrez un nom d'utilisateur
+                  </div>
+                  <div [hidden]="!userName.errors?.minlength" class="invalid-feedback">
+                    Le nom d'utilisateur doit depasser 3 caracteres
+                  </div>
+                </div>
+
+                <div class="row form-group m-2">
+                  <label class="col-md-5">CIN :</label>
+                  <input
+                    type="text"
+                    [(ngModel)]="user.cne"
+                    [ngClass]="{'is-invalid':userCne.errors && userCne.touched}"
+                    class=" col-md-7 form-control"
+                    name="Cne"
+                    #userCne="ngModel"
+                    required
+                    minlength="4"/>
+                  <div [hidden]="!userCne.errors?.required" class="invalid-feedback">
+                    Entrez votre CIN
+                  </div>
+                  <div [hidden]="!userCne.errors?.minlength" class="invalid-feedback">
+                    CIN doit depasser 4 caracteres
+                  </div>
+                </div>
+
+                <div class="row form-group m-2">
+                  <label class="col-md-5">Email</label>
+                  <input
+                    type="email"
+                    [(ngModel)]="user.email"
+                    [ngClass]="{'is-invalid':userEmail.errors && userEmail.touched}"
+                    class=" col-md-7 form-control"
+                    name="Email"
+                    #userEmail="ngModel"
+                    required
+                  />
+                  <div [hidden]="!userEmail.errors?.required" class="invalid-feedback">
+                    Entrez un Email
+                  </div>
+                </div>
+
+                <div class="row form-group m-2">
+                  <label class="col-md-5">Mot de passe:</label>
+                  <input
+                    type="password"
+                    [(ngModel)]="user.password"
+                    [ngClass]="{'is-invalid':userPassword.errors && userPassword.touched}"
+                    class=" col-md-7 form-control"
+                    name="Password"
+                    #userPassword="ngModel"
+                    required
+                    minlength="6"/>
+                  <div [hidden]="!userPassword.errors?.required" class="invalid-feedback">
+                    Entrez un mot de passe
+                  </div>
+
+                  <div [hidden]="!userPassword.errors?.minlength" class="invalid-feedback">
+                    le mot de passe doit dépasser 6 caractères
+                  </div>
+                </div>
+                <button [disabled]="!userForm.form.valid" class="btn bleuback rounded submit px-3 text-white fw-bold">S'inscrire</button>
+              </form>Si vous avez deja un compte Connectez-vous
+              <div class="form-group m-2">
+
+                <button class=" btn bleuback rounded submit px-3 text-white" routerLink="/login">
+                  <span class="fw-bold"> <i class="fas fa-sign-in-alt " ></i> Connexion</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

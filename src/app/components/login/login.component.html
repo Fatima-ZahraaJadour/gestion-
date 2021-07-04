@@ -1,0 +1,71 @@
+
+<section>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div [hidden]="!erreur" class="alert alert-danger mb-4">
+        Nom d'utilisateur/ mot de passe est incorrect
+      </div>
+
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-7 col-lg-5">
+        <div class="login-wrap p-4 p-md-5">
+          <div class="icon d-flex align-items-center justify-content-center bleuback">
+            <span class="far fa-user text-white"></span>
+          </div>
+          <h3 class="text-center mb-4">Connexion</h3>
+          <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)" class="login-form">
+            <div class="form-group m-2">
+              <input
+                type="text"
+                [(ngModel)]="user.username"
+                [ngClass]="{'is-invalid':userName.errors && userName.touched}"
+                class="form-control rounded-left"
+                name="Username"
+                #userName="ngModel"
+                required
+                minlength="6" />
+              <div [hidden]="!userName.errors?.required" class="invalid-feedback">
+                Entrez un nom d'utilisateur
+              </div>
+              <div [hidden]="!userName.errors?.minlength" class="invalid-feedback">
+                le nom doit dépasser 6 caractères
+              </div>
+            </div>
+            <div class="form-group m-2">
+              <input
+                type="password"
+                [(ngModel)]="user.password"
+                [ngClass]="{'is-invalid':userPassword.errors && userPassword.touched}"
+                class="form-control rounded-left"
+                name="Password"
+                #userPassword="ngModel"
+                required
+                minlength="5" />
+
+              <div [hidden]="!userPassword.errors?.required" class="invalid-feedback">
+                Entrez un mot de passe
+              </div>
+
+              <div [hidden]="!userPassword.errors?.minlength" class="invalid-feedback">
+                le mot de passe doit dépasser 3 caractères
+              </div>
+            </div>
+            <div class="form-group m-2">
+              <button type="submit" class="form-control btn bleuback rounded submit px-3 text-white" [disabled]="userForm.invalid  || showLoading">
+                <i *ngIf="showLoading" class="fas fa-spinner fa-spin"></i>&nbsp;&nbsp;
+                <span *ngIf="showLoading" >Chargement...</span>
+                <span [hidden]="showLoading" class="fw-bold"> <i class="fas fa-sign-in-alt "></i> Connexion</span>
+              </button>
+            </div>
+            <div class="form-group m-2 justify-content-center">
+              Si vous n'avez-pas de compte inscrivez-vous.
+              <button class="form-control btn bleuback rounded submit px-3 text-white fw-bold" routerLink="/register" > Inscription</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

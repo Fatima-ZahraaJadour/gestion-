@@ -1,0 +1,40 @@
+ul li a {
+  cursor: pointer;
+}
+
+ul {
+  background-image: linear-gradient(45deg, #8baaaa 0%, #ae8b9c 100%);
+}
+.purple {
+  color: #ae8b9c;
+}
+
+.btn-outline-purple {
+  color: #ae8b9c;
+  border-color: #ae8b9c
+}
+
+.btn-outline-purple:hover {
+  color: #fff;
+  background-color: #ae8b9c;
+  border-color: #ae8b9c
+}
+
+.btn-outline-purple.focus, .btn-outline-purple:focus {
+  box-shadow: 0 0 0 .2rem rgba(174, 139, 156, .5)
+}
+
+.btn-outline-purple.disabled, .btn-outline-purple:disabled {
+  color: #ae8b9c;
+  background-color: transparent
+}
+
+.btn-outline-purple:not(:disabled):not(.disabled).active, .btn-outline-purple:not(:disabled):not(.disabled):active, .show > .btn-outline-purple.dropdown-toggle {
+  color: #fff;
+  background-color: #ae8b9c;
+  border-color: #ae8b9c
+}
+
+.btn-outline-purple:not(:disabled):not(.disabled).active:focus, .btn-outline-purple:not(:disabled):not(.disabled):active:focus, .show > .btn-outline-purple.dropdown-toggle:focus {
+  box-shadow: 0 0 0 .2rem rgba(174, 139, 156, .5)
+}

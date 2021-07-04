@@ -1,0 +1,61 @@
+
+<div id="wrapper">
+
+  <!-- Sidebar -->
+  <ul class="navbar-nav  sidebar sidebar-dark " [hidden]="collapse" >
+
+
+    <!-- Sidebar - Brand -->
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
+
+      <div class="sidebar-brand-text mx-3"> Projet Ensas </div>
+    </a>
+    <hr class="sidebar-divider my-0">
+    <div style="text-align: center;color: white">
+      <img src="assets/img/undraw_profile_3.svg" style="align-self: center;margin: 10px;max-width: 70px;">
+      <div> {{user.username}} </div>
+
+    </div><br>
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item" routerLink="/"  routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" >
+      <a class="nav-link">
+        <i class="fas fa-home"></i>
+        <span>Acceuil</span></a>
+    </li>
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item " routerLink="./profil" routerLinkActive="active" (click)="redirectAdmin()" >
+      <a class="nav-link" >
+        <i class="fas fa-tasks"></i>
+        <span>Gestion</span></a>
+    </li>
+<!-- Divider -->
+    <hr class="sidebar-divider">
+
+
+  </ul>
+  <!-- End of Sidebar -->
+  <div id="content-wrapper" class="d-flex flex-column">
+    <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow" style="justify-content: space-between;">
+
+      <!-- Sidebar Toggle (Topbar) -->
+      <button class="btn btn-outline-purple rounded-circle mr-3 " (click)="toggleSideBar() ">
+        <i class="fa fa-bars"></i>
+      </button>
+
+      <button class="btn btn-outline-purple" (click)="logout()" >
+        <i class="fas fa-sign-out-alt"></i>
+      </button>
+    </nav>
+    <div *ngIf="error" style="margin: 10px 40px;">
+      <div class="alert alert-danger">
+        Acces authorise uniquement au Administrateurs !
+      </div>
+    </div>
+    <router-outlet></router-outlet>
+  </div>
+
+
+</div>

@@ -1,0 +1,31 @@
+<div class="container-fluid">
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold purple">Liste des utilisateurs</h6>
+
+    </div>
+    <div class="card-body">
+      <!-- Card Body -->
+      <div class="card-body align-self-center col-11">
+          <table *ngIf="users" class="table table-bordered">
+            <thead class="purple">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nom d'utilisateur</th>
+                <th scope="col">Email</th>
+                <th scope="col">CIN</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let user of users">
+                <td >{{user.id}}</td>
+                <td>{{user.username}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.cne}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
